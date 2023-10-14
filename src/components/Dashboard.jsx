@@ -30,7 +30,7 @@ const Dashboard = () => {
   return (
     <div className="flex justify-between mt-6 gap-4 flex-wrap">
       <div
-        className="flex w-[12rem] flex-col gap-2 p-4 rounded-2xl"
+        className="flex w-[12rem] flex-col gap-2 p-4 rounded-2xl "
         style={{ backgroundColor: "#FFF" }}
       >
         <div
@@ -105,6 +105,7 @@ const Dashboard = () => {
         <div className="text-sm">Total Users</div>
         <div className="text-2xl font-bold font-OpenSans">892</div>
       </div>
+
       <div className="bg-white my-8 p-6 rounded-2xl w-full">
         <div className="text-lg font-bold font-Montserrat">Activities</div>
         <div className="flex md:flex-row flex-col justify-between">

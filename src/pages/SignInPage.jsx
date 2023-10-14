@@ -54,7 +54,14 @@ const SignInPage = () => {
           <label className="input-label">Password</label>
           <input type="password" placeholder="Password" />
           <div className="forgot-password">Forgot Password?</div>
-          <button className="signin-button">Sign In</button>
+          <button
+            className="signin-button"
+            onClick={() => {
+              navigate("/home");
+            }}
+          >
+            Sign In
+          </button>
         </div>
         <div className="signup-link">
           Don't have an account?{" "}
