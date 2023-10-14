@@ -36,16 +36,26 @@ const Piechart = () => {
   }, []);
 
   if (numbers) {
+    const labels = ["Basic Tees", "Custom Short Pants", "Super Hoodies"];
+    const backgroundColors = ["#98D89E", "#E9A0A0", "#F6DC7D"];
+
+    // const piedata = {
+    //   datasets: [
+    //     {
+    //       label: "# of Votes",
+    //       data: numbers,
+    //       backgroundColor: backgroundColors,
+    //       borderWidth: 1,
+    //     },
+    //   ],
+    // };
     const piedata = {
+      labels: ["Basic Tees", "Custom Short Pants", "Super Hoodies"],
       datasets: [
         {
           label: "# of Votes",
-          data: [numbers[0], numbers[1], numbers[2]],
-          backgroundColor: [
-            "rgb(152, 216, 158)",
-            "rgb(238, 132, 132)",
-            "rgb(246, 220, 125)",
-          ],
+          data: numbers,
+          backgroundColor: ["#98D89E", "#E9A0A0", "#F6DC7D"],
           borderWidth: 1,
         },
       ],
@@ -57,21 +67,14 @@ const Piechart = () => {
           <Doughnut data={piedata} />
         </div>
         <div className="flex flex-col justify-between">
-          {["Basic Tees", "Custom Short Pants", "Super Hoodies"].map(
-            (label, index) => (
-              <div className="" key={index}>
-                <div className="flex gap-2 items-center">
-                  <div
-                    className={`w-3 h-3 bg-[#${
-                      index === 0 ? "98D89E" : index === 1 ? "E9A0A0" : "F6DC7D"
-                    }] rounded-full`}
-                  ></div>
-                  <div className="font-semibold">{label}</div>
-                </div>
-                <div className="text-[#858585]">{numbers[index]}%</div>
+          {labels.map((label, index) => (
+            <div className="" key={index}>
+              <div className="flex gap-2 items-center">
+                <div className="font-semibold">{label}</div>
               </div>
-            )
-          )}
+              <div className="text-[#858585]">{numbers[index]}%</div>
+            </div>
+          ))}
         </div>
       </>
     );

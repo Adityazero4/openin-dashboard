@@ -42,7 +42,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className="flex flex-col w-60 p-3 text-white rounded-3xl ml-2 my-2"
+      className="flex flex-col w-60 p-3 text-white rounded-3xl ml-2 my-2 h-screen"
       style={{
         backgroundColor: "#4285F4",
       }}

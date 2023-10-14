@@ -1,29 +1,42 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Menu, Popover, Transition } from "@headlessui/react";
 import {
   HiOutlineBell,
   HiOutlineSearch,
   HiOutlineChatAlt,
+  HiMenu,
 } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
+import ResponsiveSidebar from "./ResponsiveSidebar";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
-    <div className=" h-16 px-4 flex items-center  justify-between">
-      <div className="font-bold text-2xl md:mb-0 mb-2 flex gap-2 items-center">
-        Dashboard
+    <div className="px-4 py-3 md:flex md:items-center md:justify-between md:px-6 shadow-md">
+      <div className="flex items-center">
+        <button
+          className="block md:hidden text-gray-700"
+          onClick={handleSidebarToggle}
+        >
+          <HiMenu className="h-6 w-6" />
+        </button>
+        <div className="font-bold text-2xl md:mb-0 mb-2 ml-2">Dashboard</div>
       </div>
-      <div className="relative ml-auto">
-        <HiOutlineSearch className="absolute top-3 right-3 text-gray-400" />
-        <input
-          placeholder="Search..."
-          className="bg-white px-4 py-2 focus:outline-none focus:outline-gray-400  rounded-lg"
-        ></input>
-      </div>
-      <div className="flex items-center gap-2 ml-3">
+      <div className="relative ml-auto flex items-center gap-2">
+        <div className="relative">
+          <input
+            placeholder="Search..."
+            className="bg-white px-4 py-2 pr-10 focus:outline-none focus:outline-gray-400 rounded-lg"
+          />
+          <HiOutlineSearch className="absolute top-3 right-3 text-gray-400" />
+        </div>
         <Popover className="relative">
           {({ open }) => (
             <>
@@ -50,7 +63,7 @@ const Header = () => {
                       Notifications
                     </strong>
                     <div className="mt-2 py-1 text-sm">
-                      This is notification panel.
+                      This is the notification panel.
                     </div>
                   </div>
                 </Popover.Panel>
@@ -60,7 +73,7 @@ const Header = () => {
         </Popover>
         <Menu as="div" className="relative">
           <div>
-            <Menu.Button className="ml-2 bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-neutral-400">
+            <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-neutral-400">
               <span className="sr-only">Open user menu</span>
               <div
                 className="h-10 w-10 rounded-full bg-sky-500 bg-cover bg-no-repeat bg-center"
@@ -125,6 +138,9 @@ const Header = () => {
           </Transition>
         </Menu>
       </div>
+      {isSidebarOpen && (
+        <ResponsiveSidebar onClose={() => setIsSidebarOpen(false)} />
+      )}
     </div>
   );
 };
