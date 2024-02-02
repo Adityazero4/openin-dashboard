@@ -1,35 +1,39 @@
-/* Global styles */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Mulish:ital@1&family=Source+Sans+3:wght@400;600;700&display=swap");
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
-/* Styles for the sign-up page */
 .signup-container {
   display: flex;
-  background-color: #f0f0f0;
+  background-color: #f8faff;
   min-height: 100vh;
 }
 
 .left-section {
-  background-color: #4285f4;
+  background-color: #605bff;
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   width: 50%;
   padding: 20px;
   position: relative;
   overflow: hidden;
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 65%); */
+  clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
 }
 
 .company-container {
-  margin-top: 120px;
-  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80%;
+  margin-bottom: 50px;
 }
 
-/* Styles for company name and logo */
 .company-name {
   font-size: 4rem;
   margin-bottom: 20px;
@@ -39,16 +43,17 @@ body {
 .company-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  align-self: flex-start;
-  margin: 20px 20px 0 20px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
-
 .social-icons {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
   width: 100%;
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
 }
 
 .social-icons i {
@@ -62,13 +67,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+}
+
+.right-header {
+  text-align: left;
+  margin-right: 250px;
 }
 
 .header {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 0;
+  /* text-align: left; */
 }
 
 .subheader {
@@ -98,11 +108,13 @@ body {
   background-color: #fff;
   color: #858585;
   margin-right: 20px;
+  border: none;
 }
 
 .apple-signin {
   background-color: #fff;
   color: #858585;
+  border: none;
 }
 
 .signin-icons {
@@ -110,7 +122,7 @@ body {
 }
 
 .signup-form {
-  width: 80%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -138,19 +150,18 @@ body {
   width: 100%;
   padding: 10px;
   border: none;
-  border-radius: 5px;
-  background-color: #286de0;
+  border-radius: 10px;
+  background-color: #605bff;
   color: white;
   font-size: 1rem;
   cursor: pointer;
 }
 
 .signin-button:hover {
-  background-color: #2980b9;
+  background-color: #605bff;
 }
 
 .signup-link {
-  margin-top: 20px;
   text-align: center;
 }
 
@@ -161,48 +172,83 @@ body {
   color: #286de0;
 }
 
-.separator {
+.navbar-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #605bff;
+  color: white;
+  width: 100%;
+  height: 80px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  padding-left: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Media query for smaller screens */
+.navbar-logo {
+  width: 82px;
+  height: 62px;
+  margin-right: 10px;
+}
+
+.navbar-text {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 2rem;
+}
+
+.social-media-icons i {
+  font-size: 40px;
+  margin: 0 10px;
+  color: #858585;
+}
+
+@media (min-width: 769px) {
+  .navbar-mobile {
+    display: none;
+  }
+  .social-media-icons {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+  .left-section {
+    display: none;
+  }
   .signup-container {
     flex-direction: column;
   }
 
-  .left-section {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
   .right-section {
-    margin-left: 0;
-  }
-
-  .social-icons i {
-    font-size: 24px;
-    margin: 0 8px;
-  }
-
-  .company-name {
-    font-size: 3rem;
-  }
-
-  .company-logo {
-    font-size: 1.25rem;
+    margin: 20px;
   }
 
   .header {
-    font-size: 2rem;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
   }
 
   .subheader {
-    font-size: 1rem;
+    font-size: 12px;
+    color: #000;
+    font-weight: 400;
   }
 
   .google-signin,
   .apple-signin {
-    font-size: 0.875rem;
+    width: 50%;
   }
 
   .signup-form {
@@ -219,5 +265,14 @@ body {
 
   .signin-button {
     font-size: 0.9375rem;
+  }
+
+  .signup-link {
+    margin-top: 20px;
+  }
+
+  .signup-link > a {
+    display: block;
+    margin-top: 20px;
   }
 }

@@ -1,55 +1,55 @@
-import { BsTags } from "react-icons/bs";
-import { AiOutlinePieChart } from "react-icons/ai";
-import { TbCalendarTime } from "react-icons/tb";
-import { PiUserSquareBold } from "react-icons/pi";
-import { AiOutlineSetting } from "react-icons/ai";
-import { BiHelpCircle } from "react-icons/bi";
-import { RiContactsFill } from "react-icons/ri";
+import { BiSolidDashboard } from "react-icons/bi";
+import { FaFileCsv } from "react-icons/fa6";
+import { FaFileInvoice } from "react-icons/fa6";
+import { FaFileLines } from "react-icons/fa6";
+import { FaCalendarAlt } from "react-icons/fa";
+import { IoNotifications } from "react-icons/io5";
+import { IoMdSettings } from "react-icons/io";
 
 export const DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "Dashboard",
     label: "Dashboard",
-    path: "/home",
-    icon: <AiOutlinePieChart />,
+    path: "dashboard",
+    icon: <BiSolidDashboard />,
   },
   {
-    key: "Transactions",
-    label: "Transactions",
-    path: "/transactions",
-    icon: <BsTags />,
-  },
-  {
-    key: "Schedule",
-    label: "Schedule",
-    path: "/schedule",
-    icon: <TbCalendarTime />,
-  },
-  {
-    key: "Users",
-    label: "Users",
-    path: "/users",
-    icon: <PiUserSquareBold />,
-  },
-  {
-    key: "Settings",
-    label: "Settings",
-    path: "/settings",
-    icon: <AiOutlineSetting />,
+    key: "Upload",
+    label: "Upload",
+    path: "upload",
+    icon: <FaFileCsv />,
   },
 ];
 
 export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
   {
-    key: "Help",
-    label: "Help",
-    path: "/help",
-    icon: <BiHelpCircle />,
+    key: "Invoice",
+    label: "Invoice",
+    path: "invoice",
+    icon: <FaFileInvoice />,
   },
   {
-    key: "contact",
-    label: "contact",
-    path: "/contact",
-    icon: <RiContactsFill />,
+    key: "Schedule",
+    label: "Schedule",
+    path: "schedule",
+    icon: <FaFileLines />,
+  },
+  {
+    key: "Calendar",
+    label: "Calendar",
+    path: "calendar",
+    icon: <FaCalendarAlt />,
+  },
+  {
+    key: "Notification",
+    label: "Notification",
+    path: "notification",
+    icon: <IoNotifications />,
+  },
+  {
+    key: "Settings",
+    label: "Settings",
+    path: "settings",
+    icon: <IoMdSettings />,
   },
 ];

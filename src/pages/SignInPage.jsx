@@ -4,15 +4,23 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import sidebar_logo from "../assets/images/sidebar_logo.png";
 
 const SignInPage = () => {
   const navigate = useNavigate();
   return (
     <div className="signup-container">
+      <div className="navbar-mobile">
+        <img src={logo} alt="Logo" className="navbar-logo" />
+        <span className="navbar-text">Base</span>
+      </div>
       <div className="left-section">
-        <div className="company-logo">LOGO</div>
+        <div className="company-logo">
+          <img src={logo} alt="" />
+        </div>
         <div className="company-container">
-          <div className="company-name">Board.</div>
+          <div className="company-name">BASE</div>
         </div>
 
         <div className="social-icons">
@@ -24,8 +32,11 @@ const SignInPage = () => {
       </div>
       <div className="separator"></div>
       <div className="right-section">
-        <div className="header">Sign In</div>
-        <div className="subheader">Sign In to your Account</div>
+        <div className="right-header">
+          <div className="header">Sign In</div>
+          <div className="subheader">Sign In to your Account</div>
+        </div>
+
         <div className="sign-in">
           <button className="google-signin">
             {/* <i className="fa-brands fa-google signin-icons"></i> {"  "} Sign in
@@ -35,7 +46,7 @@ const SignInPage = () => {
                 onSuccess={(credentialResponse) => {
                   var decoded = jwt_decode(credentialResponse.credential);
                   console.log(decoded);
-                  navigate("/home");
+                  navigate("/home/dashboard");
                 }}
                 onError={() => {
                   console.log("Login Failed");
@@ -74,6 +85,12 @@ const SignInPage = () => {
             Register Here
           </a>
         </div>
+      </div>
+      <div className="social-media-icons">
+        <i className="fab fa-github"></i>
+        <i className="fab fa-twitter"></i>
+        <i className="fab fa-discord"></i>
+        <i className="fab fa-linkedin"></i>
       </div>
     </div>
   );
