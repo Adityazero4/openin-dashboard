@@ -97,6 +97,12 @@ const Upload = () => {
 
   return (
     <div className="flex flex-col justify-center md:items-center gap-8">
+      <h1
+        className="text-2xl font-bold self-start md:hidden
+      block "
+      >
+        Upload CSV
+      </h1>
       <div className="flex flex-col items-center justify-center bg-[#FFFFFF] rounded-lg p-4 gap-5 md:w-[596px] md:h-[367px] w-[328px] h-[352px] md:mt-10 md:ml-8 ml-6">
         <div
           className={`flex flex-col items-center justify-center bg-[#FFFFFF] border-2 border-dashed rounded-lg md:p-4 gap-5 w-[296px] h-[258px] md:w-[565px] md:h-[350px] cursor-pointer ${

@@ -5,7 +5,6 @@ import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-import sidebar_logo from "../assets/images/sidebar_logo.png";
 
 const SignInPage = () => {
   const navigate = useNavigate();
@@ -46,7 +45,7 @@ const SignInPage = () => {
                 onSuccess={(credentialResponse) => {
                   var decoded = jwt_decode(credentialResponse.credential);
                   console.log(decoded);
-                  navigate("/home/dashboard");
+                  navigate("/home/upload");
                 }}
                 onError={() => {
                   console.log("Login Failed");
@@ -68,7 +67,7 @@ const SignInPage = () => {
           <button
             className="signin-button"
             onClick={() => {
-              navigate("/home");
+              navigate("/home/upload");
             }}
           >
             Sign In
@@ -77,7 +76,7 @@ const SignInPage = () => {
         <div className="signup-link">
           Don't have an account?{" "}
           <a
-            href="/signup"
+            href="/signin"
             style={{
               color: "#3B82F6",
             }}
